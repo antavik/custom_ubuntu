@@ -5,6 +5,8 @@ ARG USER=user
 RUN apt-get update && apt-get install -y \
     apt-utils \
     python \
+    micro \
+    git \
     curl && \
     apt-get clean && \
     apt-get autoclean && \
@@ -18,5 +20,7 @@ RUN useradd -m -U -s /bin/bash $USER && \
 	chown -R $USER:$USER /home/$USER
 
 WORKDIR /home/$USER
+
+COPY ./bash_aliases /home/$USER/.bash_aliases
 
 USER $USER

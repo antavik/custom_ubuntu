@@ -7,5 +7,5 @@ if [ ! -d $SHARED_FOLDER ]; then
 fi
 
 docker run -it \
---mount type=bind,source="$(pwd)"/shared,target=/home/user \
+--mount type=bind,source="$(pwd)"/$SHARED_FOLDER,target=/home/user/$SHARED_FOLDER/ \
 custom_ubuntu /bin/bash
